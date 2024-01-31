@@ -1,7 +1,19 @@
-export default function Home() {
+"use client"
+
+import CustomNavbar from "@/components/CustomNavbar";
+import { NextUIProvider } from "@nextui-org/react";
+
+export type PageProps = {
+  params: { [key: string]: string | string[] | undefined };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+const Page = (props: PageProps) => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
-    </main>
+    <NextUIProvider>
+      <h4>Hello</h4>
+    </NextUIProvider>
   );
 }
+
+export default Page;

@@ -2,32 +2,173 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  --nextui-background: 0 0% 0%;
+  --nextui-foreground-50: 240 6% 10%;
+  --nextui-foreground-100: 240 4% 16%;
+  --nextui-foreground-200: 240 5% 26%;
+  --nextui-foreground-300: 240 5% 34%;
+  --nextui-foreground-400: 240 4% 46%;
+  --nextui-foreground-500: 240 5% 65%;
+  --nextui-foreground-600: 240 5% 84%;
+  --nextui-foreground-700: 240 6% 90%;
+  --nextui-foreground-800: 240 5% 96%;
+  --nextui-foreground-900: 0 0% 98%;
+  --nextui-foreground: 210 6% 93%;
+  --nextui-focus: 212 100% 47%;
+  --nextui-overlay: 0 0% 0%;
+  --nextui-divider: 0 0% 100%;
+  --nextui-divider-opacity: 0.15;
+  --nextui-content1: 240 6% 10%;
+  --nextui-content1-foreground: 0 0% 98%;
+  --nextui-content2: 240 4% 16%;
+  --nextui-content2-foreground: 240 5% 96%;
+  --nextui-content3: 240 5% 26%;
+  --nextui-content3-foreground: 240 6% 90%;
+  --nextui-content4: 240 5% 34%;
+  --nextui-content4-foreground: 240 5% 84%;
+  --nextui-default-50: 240 6% 10%;
+  --nextui-default-100: 240 4% 16%;
+  --nextui-default-200: 240 5% 26%;
+  --nextui-default-300: 240 5% 34%;
+  --nextui-default-400: 240 4% 46%;
+  --nextui-default-500: 240 5% 65%;
+  --nextui-default-600: 240 5% 84%;
+  --nextui-default-700: 240 6% 90%;
+  --nextui-default-800: 240 5% 96%;
+  --nextui-default-900: 0 0% 98%;
+  --nextui-default-foreground: 0 0% 100%;
+  --nextui-default: 240 5% 26%;
+  --nextui-primary-50: 212 100% 10%;
+  --nextui-primary-100: 212 100% 19%;
+  --nextui-primary-200: 212 100% 29%;
+  --nextui-primary-300: 212 100% 38%;
+  --nextui-primary-400: 212 100% 47%;
+  --nextui-primary-500: 212 92% 58%;
+  --nextui-primary-600: 212 92% 69%;
+  --nextui-primary-700: 212 92% 79%;
+  --nextui-primary-800: 212 92% 90%;
+  --nextui-primary-900: 213 92% 95%;
+  --nextui-primary-foreground: 0 0% 100%;
+  --nextui-primary: 212 100% 47%;
+  --nextui-secondary-50: 270 67% 9%;
+  --nextui-secondary-100: 270 67% 19%;
+  --nextui-secondary-200: 270 67% 28%;
+  --nextui-secondary-300: 270 67% 38%;
+  --nextui-secondary-400: 270 67% 47%;
+  --nextui-secondary-500: 270 59% 58%;
+  --nextui-secondary-600: 270 59% 68%;
+  --nextui-secondary-700: 270 59% 79%;
+  --nextui-secondary-800: 270 59% 89%;
+  --nextui-secondary-900: 270 62% 95%;
+  --nextui-secondary-foreground: 0 0% 100%;
+  --nextui-secondary: 270 59% 58%;
+  --nextui-success-50: 146 78% 9%;
+  --nextui-success-100: 146 80% 17%;
+  --nextui-success-200: 146 79% 26%;
+  --nextui-success-300: 146 80% 35%;
+  --nextui-success-400: 146 79% 44%;
+  --nextui-success-500: 146 62% 55%;
+  --nextui-success-600: 146 63% 66%;
+  --nextui-success-700: 146 62% 77%;
+  --nextui-success-800: 146 61% 89%;
+  --nextui-success-900: 147 64% 95%;
+  --nextui-success-foreground: 0 0% 0%;
+  --nextui-success: 146 79% 44%;
+  --nextui-warning-50: 37 75% 11%;
+  --nextui-warning-100: 37 75% 22%;
+  --nextui-warning-200: 37 74% 33%;
+  --nextui-warning-300: 37 74% 44%;
+  --nextui-warning-400: 37 91% 55%;
+  --nextui-warning-500: 37 91% 64%;
+  --nextui-warning-600: 37 91% 73%;
+  --nextui-warning-700: 37 91% 82%;
+  --nextui-warning-800: 37 91% 91%;
+  --nextui-warning-900: 55 92% 95%;
+  --nextui-warning-foreground: 0 0% 0%;
+  --nextui-warning: 37 91% 55%;
+  --nextui-danger-50: 340 85% 10%;
+  --nextui-danger-100: 339 87% 20%;
+  --nextui-danger-200: 339 86% 31%;
+  --nextui-danger-300: 339 87% 41%;
+  --nextui-danger-400: 339 90% 51%;
+  --nextui-danger-500: 339 90% 61%;
+  --nextui-danger-600: 339 91% 71%;
+  --nextui-danger-700: 339 90% 80%;
+  --nextui-danger-800: 340 92% 90%;
+  --nextui-danger-900: 339 92% 95%;
+  --nextui-danger-foreground: 0 0% 100%;
+  --nextui-danger: 339 90% 51%;
+  --nextui-code-background: 0 8% 5%;
+  --nextui-code-mdx: 190 95% 44%;
+  --nextui-spacing-unit: 4px;
+  --nextui-spacing-unit-0: 0px;
+  --nextui-spacing-unit-1: 0.25rem;
+  --nextui-spacing-unit-2: 0.5rem;
+  --nextui-spacing-unit-3: 0.75rem;
+  --nextui-spacing-unit-4: 1rem;
+  --nextui-spacing-unit-5: 1.25rem;
+  --nextui-spacing-unit-6: 1.5rem;
+  --nextui-spacing-unit-7: 1.75rem;
+  --nextui-spacing-unit-8: 2rem;
+  --nextui-spacing-unit-9: 2.25rem;
+  --nextui-spacing-unit-10: 2.5rem;
+  --nextui-spacing-unit-11: 2.75rem;
+  --nextui-spacing-unit-12: 3rem;
+  --nextui-spacing-unit-13: 3.25rem;
+  --nextui-spacing-unit-14: 3.5rem;
+  --nextui-spacing-unit-15: 3.75rem;
+  --nextui-spacing-unit-16: 4rem;
+  --nextui-spacing-unit-17: 4.25rem;
+  --nextui-spacing-unit-18: 4.5rem;
+  --nextui-spacing-unit-20: 5rem;
+  --nextui-spacing-unit-24: 6rem;
+  --nextui-spacing-unit-28: 7rem;
+  --nextui-spacing-unit-32: 8rem;
+  --nextui-spacing-unit-36: 9rem;
+  --nextui-spacing-unit-40: 10rem;
+  --nextui-spacing-unit-44: 11rem;
+  --nextui-spacing-unit-48: 12rem;
+  --nextui-spacing-unit-52: 13rem;
+  --nextui-spacing-unit-56: 14rem;
+  --nextui-spacing-unit-60: 15rem;
+  --nextui-spacing-unit-64: 16rem;
+  --nextui-spacing-unit-72: 18rem;
+  --nextui-spacing-unit-80: 20rem;
+  --nextui-spacing-unit-96: 24rem;
+  --nextui-spacing-unit-xs: 0.5rem;
+  --nextui-spacing-unit-sm: 0.75rem;
+  --nextui-spacing-unit-md: 1rem;
+  --nextui-spacing-unit-lg: 1.375rem;
+  --nextui-spacing-unit-xl: 2.25rem;
+  --nextui-spacing-unit-2xl: 3rem;
+  --nextui-spacing-unit-3xl: 5rem;
+  --nextui-spacing-unit-4xl: 7.5rem;
+  --nextui-spacing-unit-5xl: 14rem;
+  --nextui-spacing-unit-6xl: 18rem;
+  --nextui-spacing-unit-7xl: 24rem;
+  --nextui-spacing-unit-8xl: 32rem;
+  --nextui-spacing-unit-9xl: 40rem;
+  --nextui-spacing-unit-3_5: 0.875rem;
+  --nextui-disabled-opacity: .5;
+  --nextui-divider-weight: 1px;
+  --nextui-font-size-tiny: 0.75rem;
+  --nextui-font-size-small: 0.875rem;
+  --nextui-font-size-medium: 1rem;
+  --nextui-font-size-large: 1.125rem;
+  --nextui-line-height-tiny: 1rem;
+  --nextui-line-height-small: 1.25rem;
+  --nextui-line-height-medium: 1.5rem;
+  --nextui-line-height-large: 1.75rem;
+  --nextui-radius-small: 8px;
+  --nextui-radius-medium: 12px;
+  --nextui-radius-large: 14px;
+  --nextui-border-width-small: 1px;
+  --nextui-border-width-medium: 2px;
+  --nextui-border-width-large: 3px;
+  --nextui-box-shadow-small: 0px 0px 5px 0px rgba(0,0,0,.05),0px 2px 10px 0px rgba(0,0,0,.2),inset 0px 0px 1px 0px hsla(0,0%,100%,.15);
+  --nextui-box-shadow-medium: 0px 0px 15px 0px rgba(0,0,0,.06),0px 2px 30px 0px rgba(0,0,0,.22),inset 0px 0px 1px 0px hsla(0,0%,100%,.15);
+  --nextui-box-shadow-large: 0px 0px 30px 0px rgba(0,0,0,.07),0px 30px 60px 0px rgba(0,0,0,.26),inset 0px 0px 1px 0px hsla(0,0%,100%,.15);
+  --nextui-hover-opacity: .9;
 }

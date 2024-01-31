@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Player {
+  id                    String   @id @default(uuid())
+  timestamp             DateTime @default(now())
+  name                  String
+  played_count          Int      @default(0)
+  won_count             Int      @default(0)
+  total_sum             Int      @default(0)
+  ag_count              Int      @default(0)
+  one_count             Int      @default(0)
+  two_count             Int      @default(0)
+  three_count           Int      @default(0)
+  four_count            Int      @default(0)
+  five_count            Int      @default(0)
+  six_count             Int      @default(0)
+  bonus_count           Int      @default(0)
+  pair_count            Int      @default(0)
+  two_pair_count        Int      @default(0)
+  trips_count           Int      @default(0)
+  quads_count           Int      @default(0)
+  straight_count        Int      @default(0)
+  little_straight_count Int      @default(0)
+  full_house_count      Int      @default(0)
+  yatzy_count           Int      @default(0)
+  highest_one           Int      @default(0)
+  highest_two           Int      @default(0)
+  highest_three         Int      @default(0)
+  highest_four          Int      @default(0)
+  highest_five          Int      @default(0)
+  highest_six           Int      @default(0)
+  highest_sum           Int      @default(0)
+  highest_pair          Int      @default(0)
+  highest_two_pair      Int      @default(0)
+  highest_trips         Int      @default(0)
+  highest_quads         Int      @default(0)
+  highest_full_house    Int      @default(0)
+  highest_chance        Int      @default(0)
+  highest_total         Int      @default(0)
+  color                 String   @default("secondary")
+  stats                 Score[]
+
+  @@unique([name])
+  @@map(name: "player")
+}
+
+model Yatzy {
+  id        String   @id @default(uuid())
+  timestamp DateTime @default(now())
+  name      String
+  stats     Score[]
+
+  @@unique([name])
+  @@map(name: "yatzy")
+}
+
+model Score {
+  id                String   @id @default(uuid())
+  timestamp         DateTime @default(now())
+  yatzy_id          String
+  yatzy_ref         Yatzy    @relation(fields: [yatzy_id], references: [id])
+  player_id         String
+  player_ref        Player   @relation(fields: [player_id], references: [id])
+  round             Int
+  move              Int      @default(0)
+  one               Int      @default(0)
+  two               Int      @default(0)
+  three             Int      @default(0)
+  four              Int      @default(0)
+  five              Int      @default(0)
+  six               Int      @default(0)
+  sum               Int      @default(0)
+  bonus             Int      @default(0)
+  pair              Int      @default(0)
+  two_pair          Int      @default(0)
+  trips             Int      @default(0)
+  quads             Int      @default(0)
+  straight          Int      @default(0)
+  little_straight   Int      @default(0)
+  full_house        Int      @default(0)
+  chance            Int      @default(0)
+  yatzy             Int      @default(0)
+  total             Int      @default(0)
+  active            Boolean  @default(true)
+  winner            Boolean  @default(false)
+  placement         Int      @default(0)
+  pair_dice         Int      @default(0)
+  two_pair_dice_1   Int      @default(0)
+  two_pair_dice_2   Int      @default(0)
+  trips_dice        Int      @default(0)
+  quads_dice        Int      @default(0)
+  full_house_dice_3 Int      @default(0)
+  full_house_dice_2 Int      @default(0)
+  chance_dice_1     Int      @default(0)
+  chance_dice_2     Int      @default(0)
+  chance_dice_3     Int      @default(0)
+  chance_dice_4     Int      @default(0)
+  chance_dice_5     Int      @default(0)
+  yatzy_dice        Int      @default(0)
+
+  @@unique([yatzy_id, player_id, move])
+  @@map(name: "score")
+}
